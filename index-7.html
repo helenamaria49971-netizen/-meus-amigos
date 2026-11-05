@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8d8e7">
+<title>meus amigos ♡</title>
+<style>
+:root {
+  --site-primary: #e98bb5;
+  --site-on-primary: #42172d;
+  --site-secondary: #f7c6dc;
+  --site-on-secondary: #54233c;
+  --site-background: #fff4f8;
+  --site-on-background: #542b40;
+  --site-font-body: "Trebuchet MS", Arial, sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; background-color: var(--site-background); color: var(--site-on-background); position: relative; overflow: hidden; }
+.decor { position: absolute; pointer-events: none; opacity: var(--site-decoration-opacity); color: #e98bb5; z-index: 0; user-select: none; }
+.decor.one { top: 35px; left: 7%; font-size: 28px; transform: rotate(-14deg); }
+.decor.two { top: 110px; right: 8%; font-size: 22px; }
+.decor.three { top: 430px; left: 4%; font-size: 19px; }
+.decor.four { top: 620px; right: 5%; font-size: 28px; transform: rotate(15deg); }
+main { width: min(900px, 100%); margin: 0 auto; padding: calc(38px * var(--site-spacing-scale)) 20px 50px; position: relative; z-index: 1; }
+.hero { text-align: center; padding: 30px 12px 24px; }
+.eyebrow { color: #b65e86; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; }
+h1 { font-family: var(--site-font-heading); font-size: calc(clamp(42px, 9vw, 68px) * var(--site-heading-scale)); line-height: 1; font-weight: 500; margin: 15px 0 12px; color: #b94f7e; }
+.subtitle { font-size: 15px; line-height: 1.7; max-width: 460px; margin: 0 auto; color: #87536c; }
+.heart-line { color: #d979a4; letter-spacing: 9px; margin-top: 22px; font-size: 17px; }
+.note { max-width: 650px; margin: 8px auto 28px; padding: 18px 20px; border: 1px solid #f1c4d8; background: #fffafd; border-radius: calc(20px * var(--site-radius-scale)); text-align: center; color: #87536c; line-height: 1.7; box-shadow: 0 8px 24px #d98caf18; }
+.note strong { color: #b94f7e; font-family: var(--site-font-heading); font-size: 20px; font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 690px; margin: 0 auto; }
+.friend { appearance: none; border: 1px solid #f0bfd4; border-radius: calc(19px * var(--site-radius-scale)); background: #fffafd; color: inherit; padding: 22px 16px 18px; text-align: center; cursor: pointer; min-height: 155px; transition: transform .18s ease, border-color .18s ease, background .18s ease; font: inherit; }
+.friend:hover, .friend:focus-visible { transform: translateY(-3px); border-color: #d979a4; background: #fff5fa; outline: 3px solid #e98bb544; outline-offset: 2px; }
+.avatar { width: 48px; height: 48px; margin: 0 auto 12px; display: grid; place-items: center; border-radius: 50%; background: var(--site-secondary); color: #a94d77; font-size: 22px; }
+.friend h2 { font-family: var(--site-font-heading); font-weight: 500; color: #a94d77; font-size: 24px; margin: 0 0 7px; }
+.friend p { margin: 0; color: #96677d; font-size: 12px; }
+.message { display: none; max-width: 690px; margin: 18px auto 0; padding: 22px; text-align: center; background: #fce6ef; border: 1px solid #efbad1; border-radius: calc(20px * var(--site-radius-scale)); line-height: 1.7; }
+.message.show { display: block; animation: appear .25s ease-out; }
+.message h3 { font-family: var(--site-font-heading); font-size: 25px; font-weight: 500; color: #a94d77; margin: 0 0 8px; }
+.message p { margin: 0; color: #70445a; }
+.close { margin-top: 14px; background: #d979a4; color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; cursor: pointer; font: inherit; }
+footer { text-align: center; margin: 32px 0 0; color: #a76a86; font-size: 13px; line-height: 1.8; }
+footer span { color: #d979a4; }
+@keyframes appear { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 480px) { main { padding: 22px 15px 38px; } .grid { gap: 10px; } .friend { min-height: 145px; padding: 18px 10px; } .friend h2 { font-size: 21px; } .note { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="decor one" aria-hidden="true">♡</div>
+  <div class="decor two" aria-hidden="true">✿</div>
+  <div class="decor three" aria-hidden="true">♥</div>
+  <div class="decor four" aria-hidden="true">♡</div>
+  <main>
+    <header class="hero">
+      <div class="eyebrow">um cantinho cheio de carinho</div>
+      <h1>meus amigos ♡</h1>
+      <p class="subtitle">Algumas pessoas deixam os dias mais leves só por fazerem parte deles. Este cantinho é para vocês!</p>
+      <div class="heart-line" aria-hidden="true">♡ ♡ ♡</div>
+    </header>
+    <section class="note" aria-label="Mensagem de amizade">
+      <strong>para minha turminha especial</strong><br>
+      Obrigada por cada conversa, risada, momento aleatório e lembrança. Cada amizade tem seu jeitinho único e merece muito carinho. ♡
+    </section>
+    <section class="grid" aria-label="Lista de amigos">
+      <button class="friend" type="button" data-name="Carol"><span class="avatar">🌷</span><h2>Carol</h2><p>toque para abrir uma mensagem ♡</p></button>
+      <button class="friend" type="button" data-name="Hazzard"><span class="avatar">🦋</span><h2>Hazzard</h2><p>toque para abrir uma mensagem ♡</p></button>
+      <button class="friend" type="button" data-name="BN"><span class="avatar">🎀</span><h2>BN</h2><p>toque para abrir uma mensagem ♡</p></button>
+      <button class="friend" type="button" data-name="Sne1ki"><span class="avatar">🌸</span><h2>Sne1ki</h2><p>toque para abrir uma mensagem ♡</p></button>
+      <button class="friend" type="button" data-name="Silva"><span class="avatar">⭐</span><h2>Silva</h2><p>toque para abrir uma mensagem ♡</p></button>
+    </section>
+    <section class="message" id="message" aria-live="polite">
+      <h3 id="message-title"></h3>
+      <p id="message-text">Cada amizade tem uma história só dela. ♡</p>
+      <button class="close" id="close" type="button">fechar mensagem</button>
+    </section>
+    <footer>feito com carinho e muitos coraçõezinhos <span>♥</span><br>amizade é um presente que a vida dá ♡</footer>
+  </main>
+</div>
+<script>
+const message = document.getElementById('message');
+const title = document.getElementById('message-title');
+const messages = {
+  Carol: 'Carol, adoro ter você por perto! Que a vida te traga motivos novos para sorrir, sonhos bonitos para realizar e muitos dias daqueles que viram lembrança boa. Você merece um mundo de coisas lindas! 🌷',
+  Hazzard: 'Hazzard, que nunca faltem assunto, risadas e planos inesperados! Que cada fase traga descobertas legais e que a nossa turma continue colecionando histórias que só a gente entende. 🦋',
+  BN: 'BN, seu jeito faz parte do que torna essa amizade especial. Te desejo conquistas, tranquilidade nos dias difíceis e muita gente boa caminhando ao seu lado. Continue sendo essa pessoa única! 🎀',
+  Sne1ki: 'Sne1ki, espero que você nunca esqueça que faz diferença na nossa turma. Que seus planos deem certo, que apareçam oportunidades incríveis e que a gente ainda dê muita risada junto! 🌸',
+  Silva: 'Silva, que venham muitas aventuras, conversas sem hora para acabar e lembranças para recordar com carinho. Obrigada por somar momentos bons à nossa turma. Você é especial! ⭐'
+};
+document.querySelectorAll('.friend').forEach((button) => {
+  button.addEventListener('click', () => {
+    title.textContent = `♡ ${button.dataset.name}, este cantinho é seu! ♡`;
+    document.getElementById('message-text').textContent = messages[button.dataset.name];
+    message.classList.add('show');
+    message.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+});
+document.getElementById('close').addEventListener('click', () => message.classList.remove('show'));
+</script>
+</body>
+</html>
