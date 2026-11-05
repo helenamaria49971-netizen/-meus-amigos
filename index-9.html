@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você é meu lugar favorito</title>
+<style>
+:root {
+  --site-primary: #8f2947;
+  --site-on-primary: #ffffff;
+  --site-secondary: #351a25;
+  --site-on-secondary: #ffe9ef;
+  --site-background: #160e13;
+  --site-on-background: #fff0f3;
+  --site-font-body: Georgia, 'Times New Roman', serif;
+  --site-font-heading: Georgia, 'Times New Roman', serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
+.app { min-height: 100vh; width: 100%; background-color: light-dark(#f9edf1, var(--site-background)); color: light-dark(#321b25, var(--site-on-background)); display: grid; place-items: center; padding: calc(28px * var(--site-spacing-scale)); position: relative; overflow: hidden; }
+.glow { position: absolute; width: 330px; height: 330px; border-radius: 50%; background: #9d3154; filter: blur(110px); opacity: calc(.22 * var(--site-decoration-opacity)); top: -130px; right: -90px; pointer-events: none; }
+main { width: min(100%, 650px); text-align: center; position: relative; z-index: 1; }
+.kicker { font: 700 11px Arial, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: light-dark(#8f2947, #e6a0b5); }
+h1 { font-size: clamp(38px, 8vw, 66px); line-height: 1.04; font-weight: 500; margin: 18px 0 12px; }
+.lead { font-size: 17px; opacity: .75; margin: 0 auto 34px; }
+.envelope-wrap { margin: 0 auto 25px; width: min(100%, 420px); }
+.envelope { position: relative; height: 230px; border-radius: 12px; background: linear-gradient(145deg, #a23a59, #581d34); box-shadow: 0 24px 60px #260c183d; display: grid; place-items: center; overflow: hidden; }
+.envelope:before { content: ''; position: absolute; inset: 0; background: linear-gradient(35deg, transparent 49.5%, #d77a95 50%, transparent 50.5%), linear-gradient(-35deg, transparent 49.5%, #c45c7b 50%, transparent 50.5%); opacity: .65; }
+.seal { position: relative; z-index: 1; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: #f6dce4; color: #8f2947; font-size: 30px; box-shadow: 0 5px 18px #35101d66; }
+.note { background: light-dark(#fff, #251720); border: 1px solid light-dark(#ead1d9, #573342); border-radius: calc(20px * var(--site-radius-scale)); padding: clamp(24px, 6vw, 40px); text-align: left; box-shadow: 0 16px 45px #260c1818; }
+.note h2 { text-align: center; color: light-dark(#8f2947, #e6a0b5); font-size: 26px; font-weight: 500; margin: 0 0 20px; }
+.note p { font-size: 17px; line-height: 1.85; margin: 0 0 14px; }
+.sign { text-align: right; font-style: italic; color: light-dark(#8f2947, #e6a0b5); margin: 20px 0 0 !important; }
+button { border: 0; border-radius: 999px; padding: 15px 26px; margin-top: 24px; background: var(--site-primary); color: var(--site-on-primary); font: 700 14px Arial, sans-serif; cursor: pointer; transition: transform .2s, filter .2s; }
+button:hover { transform: translateY(-2px); filter: brightness(1.12); }
+.hidden-message { display: none; margin: 18px auto 0; max-width: 500px; border: 1px solid light-dark(#ead1d9, #573342); border-radius: 16px; padding: 20px; background: light-dark(#f1dce3, var(--site-secondary)); color: light-dark(#542638, var(--site-on-secondary)); font-size: 19px; line-height: 1.6; }
+.hidden-message.open { display: block; animation: rise .35s ease; }
+footer { margin-top: 28px; font: 11px Arial, sans-serif; letter-spacing: .12em; opacity: .55; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 480px) { .app { padding: 22px 16px; } .envelope { height: 190px; } .note p { font-size: 16px; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="glow" aria-hidden="true"></div>
+  <main>
+    <div class="kicker">Uma mensagem só sua</div>
+    <h1>Você é meu<br>lugar favorito. ♥</h1>
+    <p class="lead">Abri meu coração e deixei algumas palavras aqui.</p>
+    <div class="envelope-wrap" aria-hidden="true"><div class="envelope"><div class="seal">♥</div></div></div>
+    <section class="note">
+      <h2>Para o meu menino,</h2>
+      <p>Eu gosto da paz que sinto quando falo com você e da felicidade que aparece nas coisas mais simples quando você está por perto.</p>
+      <p>Talvez eu nem sempre encontre as palavras certas, mas quero que nunca tenha dúvidas de que você é importante para mim. Seu carinho faz diferença nos meus dias e seu sorriso é uma das minhas coisas favoritas.</p>
+      <p>Quero continuar criando lembranças, compartilhando sonhos, dando risadas e vivendo muitos momentos bonitos ao seu lado. Não precisa ser perfeito: só quero que seja verdadeiro, com respeito, cuidado e muito carinho.</p>
+      <p class="sign">Com amor, de alguém que tem muita sorte por ter você. ♥</p>
+    </section>
+    <button id="open" type="button">Tem mais uma coisinha… 💌</button>
+    <div class="hidden-message" id="message" role="status">Se pudesse guardar um momento em um potinho, escolheria todos aqueles em que estou com você. Você é muito especial para mim. ❤️</div>
+    <footer>FEITO COM AMOR · PARA VOCÊ</footer>
+  </main>
+</div>
+<script>
+const openButton = document.getElementById('open');
+const message = document.getElementById('message');
+openButton.addEventListener('click', () => {
+  const isOpen = message.classList.toggle('open');
+  openButton.textContent = isOpen ? 'Guardar a surpresa ♥' : 'Tem mais uma coisinha… 💌';
+});
+</script>
+</body>
+</html>
